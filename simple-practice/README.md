@@ -6,8 +6,32 @@ concepts covered for a strong foundatoin ahead of any formal education.
 ## Table of Contents
 
 1. Fundamentals
-    1. TBD
+    - Incomplete
+    - Complete
 2. Arrays
-    1. TBD
+    - Incomplete
+        1. Longest String
+
+
+        Intended to show an array of objects and basic array usage. Also helps
+        with familiarity on calling methods on an object.
+    - Complete
 3. Objects
-    1. TBD
+    - Incomplete
+        1. SimpleFish
+
+
+            Intended for getting used to creating a constructor and overriding
+            the toString method.
+        2. Book-and-Author
+
+
+            Intended for learning to add instance methods to a class. Also shows
+            that classes are types and can be passed around in method signatures
+            like primitives.
+        3. Fancy-Pants
+
+
+            Intended for experiencing the process of deciding the data to
+            encapsulate within an class.
+    - Complete
