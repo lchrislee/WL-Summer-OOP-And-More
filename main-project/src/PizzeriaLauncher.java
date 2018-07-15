@@ -60,9 +60,11 @@ public class PizzeriaLauncher
      */
     private void showOptions() {
         System.out.println("Please select one of the following options:");
-        System.out.println("1) Order a pizza");
-        System.out.println("2) Check current bill");
-        System.out.println("3) Pay bill");
+        System.out.println("1) Check menu");
+        System.out.println("2) Order a pizza");
+        System.out.println("7) Check current bill");
+        System.out.println("8) Pay bill");
+        System.out.println("9) Go to another pizzeria");
         System.out.println("0) Leave");
         System.out.print("Your choice: ");
     }
@@ -94,6 +96,7 @@ public class PizzeriaLauncher
      * TODO: Show all the available types of pizza.
      * TODO: Ask the user which type of pizza they want.
      * TODO: Inform the pizzeria of the order, obtain the pizza, and give it to the user.
+     * TODO: Update with the new types of pizza available.
      */
 
     private void handleOrderingPizza(int count) {
