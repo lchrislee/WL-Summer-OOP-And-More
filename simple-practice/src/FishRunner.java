@@ -18,8 +18,6 @@ public class FishRunner {
         System.out.print("Alive (true/false): ");
         boolean alive = console.nextBoolean();
         Fish fish = new Fish (name, weight, length, age, alive, mouthType,scaleType);
-        //fish.TypeofScale(scaleType);
-        //fish.TypeofMouth(mouthType);
         System.out.println("Your Fish details: " + fish);
     }
 }
