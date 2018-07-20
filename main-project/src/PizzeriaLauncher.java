@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class PizzeriaLauncher
 {
-    private Scanner mInputScanner;
+    private Scanner mInputScanner;   
 
     public static final int LEAVING = 0;
     public static final int ORDERING = 1;
