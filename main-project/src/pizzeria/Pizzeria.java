@@ -7,7 +7,7 @@ import pizzeria.internal.Pizza;
  * and other aspects of business.
  */
 public class Pizzeria {
-    Pizza pizza = new Pizza();
+    Pizza pizza = new Pizza(); 
 
     private String mName;
     private String mDescription;
