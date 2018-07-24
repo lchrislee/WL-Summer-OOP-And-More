@@ -10,7 +10,7 @@ public class Pizzeria {
     Pizza pizza = new Pizza();
 
     private String mName;
-    private String mDescription; 
+    private String mDescription;
     private int mNumOfPizzas;
 
     public final int PIZZA_TYPE_CHEESE_PIZZA = 1;
@@ -19,29 +19,44 @@ public class Pizzeria {
     public Pizzeria () {
         this.mName = "";
         this.mDescription = "";
+        this.mNumOfPizzas = 0;
     }
 
-
-    public Pizzeria(final String name, final String description, final int count) {
+    public Pizzeria(final String name, final String description) {
         mName = name;
         mDescription = description;
-        mNumOfPizzas = count;
     }
 
-    // TODO: Add takeOrder method that takes the customer selected pizza type and returns the appropriate pizza.
-    public void takeOrder(final int PizzaType) {
+    /**
+     * Takes in the pizza order and returns it back while increasing the number of pizzas ordered
+     * by 1.
+     * @param PizzaType Takes in the order number that the user has entered.
+     * @return Returns the name and description of the pizza the user orders
+     */
+
+    public String takeOrder(final int PizzaType) {
         if (PizzaType == PIZZA_TYPE_CHEESE_PIZZA) {
-            toString();
+            mNumOfPizzas++;
         }
+        return pizza.toString();
     }
 
-    // TODO: Add calculateCost method that returns the amount owed by the customer for all the pizzas they bought.
+    /**
+     * Calculates the cost by the number of pizzas the user had ordered beforehand.
+     * @return Returns the current cost for the current amount of pizzas the user had ordered.
+     */
     public int calculateCost() {
-        int cost = mNumOfPizzas * COST_OF_PIZZA;
+        int cost;
+        cost = mNumOfPizzas * COST_OF_PIZZA;
         return cost;
     }
 
-    // TODO: Add acceptPayment method that takes in the amount paid and removes it from the amount the customer owes.
+    /**
+     * Takes the user's inputted number and subtracts it to the total cost of pizzas they had ordered.
+     * Also calculates change if user had entered more than the intended amount.
+     *
+     * @param payment The amount the user inputs to pay for the amount of pizzas they had ordered
+     */
     public void acceptPayment(int payment) {
         double remainingAmount = payment - calculateCost();
         if (remainingAmount != 0) {
