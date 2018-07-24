@@ -1,13 +1,22 @@
 import java.util.*;
+
+/**
+ * 13) Generate a character array of random size and ask the user to enter letters to fill the array.
+ * Output the array back to the user backwards.
+ */
+
 public class CharacterArray {
     public static void main(String args[]) {
+
         Scanner console = new Scanner(System.in);
         Random r = new Random();
+
         int n = r.nextInt(9) + 1;
         System.out.println("Array: " + n);
         System.out.println("Enter " + n + " letters: ");
         String[] text = new String[n];
         System.out.println("Enter letters: ");
+
         for (int i = 0; i< text.length; i++) {
             text[i] = console.next();
         }
