@@ -48,12 +48,15 @@ public class Book
         this.mTitle = Title;
     }
     public void setAuthorName(String AuthorName) {
+
         this.mAuthorName = AuthorName;
     }
     public void setSeriesName(String SeriesName) {
+
         this.mSeriesName = SeriesName;
     }
     public void setPageLength(int PageLength) {
+
         this.mPageLength = PageLength;
     }
     public void setChapterCount(int ChapterCount) {
@@ -66,17 +69,16 @@ public class Book
         this.mIsPartOfSeries = PartOfSeries;
     }
     //==========================================================================================================
-    public void estimatedReadingTime(int rateOfReading) {
-        int time;
-        time = this.mPageLength/rateOfReading;
-        System.out.println("It will take about " + time + "h to finish your book.");
+    public double estimatedReadingTime(double rateOfReading) {
+        double time = this.mPageLength/rateOfReading;
+        return time;
     }
-    public boolean equalsTo(String name) {
-        if (this.mAuthorName.equals(name)){
+    public boolean checkIfAuthorWrote(Author author) {
+        if (mAuthorName.equals(author.getName())) {
             return true;
         } else {
             return false;
         }
     }
-
 }
+
