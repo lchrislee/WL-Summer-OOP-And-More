@@ -1,4 +1,5 @@
 import pizzeria.Pizzeria;
+import pizzeria.internal.menu.PizzaType;
 
 import java.util.Scanner;
 
@@ -111,7 +112,8 @@ public class PizzeriaLauncher
         String name = mInputScanner.nextLine();
         System.out.print("The description of the pizza: ");
         String description = mInputScanner.nextLine();
-        Pizzeria orderPizzeria = new Pizzeria(name,description,count);
+        PizzaType[] typesSupported = new PizzaType[0];
+        Pizzeria orderPizzeria = new Pizzeria(name,description, typesSupported);
         orderPizzeria.takeOrder(order);
         System.out.println("Here's your pizza");
         System.out.println(orderPizzeria);
