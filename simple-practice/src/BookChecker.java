@@ -42,14 +42,17 @@ public class BookChecker {
 
         System.out.print("How many pages can you read in an hour? ");
         int rate = console.nextInt();
-        bookContents.estimatedReadingTime(rate);
+        System.out.println("It will take about " + bookContents.estimatedReadingTime(rate) +
+                "h to finish your book.");
         System.out.println();
         System.out.println("Is the Author and the Book Author the same?");
-        if (bookContents.equalsTo(name)) {
-            System.out.println("Yes, they are the same author.");
+
+        if(bookContents.checkIfAuthorWrote(authorContents)){
+            System.out.println("They are the same author.");
         } else {
-            System.out.println("No, they are not the same author.");
+            System.out.println("They are not the same author.");
         }
+
         System.out.println();
 
         System.out.print("Do you want to enter in another Author? ");
@@ -77,10 +80,10 @@ public class BookChecker {
             authorContents.setIsWritingNextBook(nextBook2);
             System.out.println();
 
-            if (bookContents.equalsTo(name2)) {
-                System.out.println("Yes, they are the same author.");
+            if (bookContents.checkIfAuthorWrote(authorContents)) {
+                System.out.println("They are the same author.");
             } else {
-                System.out.println("No, they are not the same author.");
+                System.out.println("They are not the same author.");
             }
 
         } else {
