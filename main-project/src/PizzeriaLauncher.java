@@ -1,4 +1,5 @@
 import pizzeria.Pizzeria;
+import pizzeria.internal.menu.PizzaType;
 
 import java.util.Scanner;
 
@@ -60,9 +61,11 @@ public class PizzeriaLauncher
      */
     private void showOptions() {
         System.out.println("Please select one of the following options:");
-        System.out.println("1) Order a pizza");
-        System.out.println("2) Check current bill");
-        System.out.println("3) Pay bill");
+        System.out.println("1) Check menu");
+        System.out.println("2) Order a pizza");
+        System.out.println("7) Check current bill");
+        System.out.println("8) Pay bill");
+        System.out.println("9) Go to another pizzeria");
         System.out.println("0) Leave");
         System.out.print("Your choice: ");
     }
@@ -89,7 +92,14 @@ public class PizzeriaLauncher
      * Show the user what types of pizza are available and then ask what they want. Once retrieved, hand off the
      * information to the pizzeria to obtain the correct pizza. Then give it to the user.
      *
+<<<<<<< HEAD
      *
+=======
+     * TODO: Show all the available types of pizza.
+     * TODO: Ask the user which type of pizza they want.
+     * TODO: Inform the pizzeria of the order, obtain the pizza, and give it to the user.
+     * TODO: Update with the new types of pizza available.
+>>>>>>> 555557feeba24fb5455ea0e1b39c5a50106abccf
      */
 
     private void handleOrderingPizza() {
@@ -103,6 +113,12 @@ public class PizzeriaLauncher
         String name = mInputScanner.nextLine();
         System.out.print("The description of the pizza: ");
         String description = mInputScanner.nextLine();
+<<<<<<< HEAD
+=======
+        PizzaType[] typesSupported = new PizzaType[0];
+        Pizzeria orderPizzeria = new Pizzeria(name,description, typesSupported);
+        orderPizzeria.takeOrder(order);
+>>>>>>> 555557feeba24fb5455ea0e1b39c5a50106abccf
         System.out.println("Here's your pizza");
         System.out.println(pizzeria.takeOrder(order));
 
