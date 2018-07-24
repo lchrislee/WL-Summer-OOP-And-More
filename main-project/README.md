@@ -39,8 +39,8 @@ Note that you should delete any TODO comments after they are completed.
         - Implement `handleOrderPizza` as described in the TODO.
         - Implement `handleCheckBill` as described in the TODO.
         - Implement `handlePayment` as described in the TODO.
-2. Making the restaurant more defined and adding more variety. Expected timeframe: 7/20 - 7/24.
-Estimated time: 90 min.
+2. Making the restaurant more defined and adding more variety. Expected timeframe: 7/26 - 8/2.
+Estimated time: 150 min.
     1. A `Pizza` isn't really complete without some toppings. We need to implement the functionality
         to support toppings and also to create `Pizza` with them.
         - Create a `Topping` enum with all the toppings mentioned with `PizzaType` (sauce and cheese
