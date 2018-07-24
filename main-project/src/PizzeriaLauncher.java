@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class PizzeriaLauncher
 {
-    private Scanner mInputScanner;   
+    private Scanner mInputScanner;
 
     public static final int LEAVING = 0;
     public static final int ORDERING = 1;
@@ -16,11 +16,11 @@ public class PizzeriaLauncher
     public static final int PAYING = 3;
 
     // The Pizzeria that the user has chosen to enter.
+    Pizzeria pizzeria = new Pizzeria();
 
     public static void main(final String[] args) {
         final PizzeriaLauncher launcher = new PizzeriaLauncher();
         launcher.start();
-
     }
 
     private PizzeriaLauncher() {
@@ -70,14 +70,12 @@ public class PizzeriaLauncher
     /**
      * Take the option selected by the user and transform it to something the pizzeria can understand. Then decide how
      * to handle the request from the user.
-     * TODO: Handle the option of ordering a pizza.
      *
      * @param optionSelected The choice selected by the user that needs processing.
      */
     private void processUserChoice(final int optionSelected) {
-        int count = 0;
         if (optionSelected == ORDERING) {
-            handleOrderingPizza(count);
+            handleOrderingPizza();
         } else if (optionSelected == CHECKING) {
             handleCheckBill();
         } else if (optionSelected == PAYING) {
@@ -91,13 +89,10 @@ public class PizzeriaLauncher
      * Show the user what types of pizza are available and then ask what they want. Once retrieved, hand off the
      * information to the pizzeria to obtain the correct pizza. Then give it to the user.
      *
-     * TODO: Show all the available types of pizza.
-     * TODO: Ask the user which type of pizza they want.
-     * TODO: Inform the pizzeria of the order, obtain the pizza, and give it to the user.
+     *
      */
 
-    private void handleOrderingPizza(int count) {
-        count++;
+    private void handleOrderingPizza() {
         System.out.println("What type of pizza do you want to order? ");
         System.out.println("1) Cheese Pizza - Plain pizza with fresh red " +
                 "tomato sauce and some mozzarella cheese.");
@@ -108,10 +103,9 @@ public class PizzeriaLauncher
         String name = mInputScanner.nextLine();
         System.out.print("The description of the pizza: ");
         String description = mInputScanner.nextLine();
-        Pizzeria orderPizzeria = new Pizzeria(name,description,count);
-        orderPizzeria.takeOrder(order);
         System.out.println("Here's your pizza");
-        System.out.println(orderPizzeria);
+        System.out.println(pizzeria.takeOrder(order));
+
     }
 
     /**
@@ -120,23 +114,18 @@ public class PizzeriaLauncher
      * TODO: Obtain the current amount owed to the pizzeria and display it.
      */
     private void handleCheckBill() {
-        Pizzeria bill = new Pizzeria();
-        System.out.println("Here's what you owe to the pizzeria currently: $" + bill.calculateCost());
+        System.out.println("Here's what you owe to the pizzeria currently: $" + pizzeria.calculateCost());
     }
 
     /**
      * Figure out how much the user owes the pizzeria and let them know. Then accept and process the payment.
      *
-     * TODO: Ask the pizzeria how much the user owes for their pizzas and then let the user know.
-     * TODO: Accept the money from the user and hand it off to the pizzeria.
      */
     private void handlePayment() {
-        Pizzeria paymentForPizzas = new Pizzeria();
-        Pizzeria bill = new Pizzeria();
-        System.out.println("This is how much you owe to the pizzeria: $" + bill.calculateCost());
+        System.out.println("This is how much you owe to the pizzeria: $" + pizzeria.calculateCost());
         System.out.println("Please enter in the amount you want to pay.");
         int payment = mInputScanner.nextInt();
-        paymentForPizzas.acceptPayment(payment);
+        pizzeria.acceptPayment(payment);
     }
 
 }
