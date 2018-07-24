@@ -1,4 +1,11 @@
 import java.util.*;
+
+/**
+ * 11) Write a program that generates an integer array of random size between [1, 20].
+ * Ask the user to fill in all the values of the array. Print out the number of positive numbers,
+ * negative numbers, and zeros in the array.
+ */
+
 public class RandomArray {
     public static void main (String args[]) {
         Scanner console = new Scanner(System.in);
