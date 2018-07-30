@@ -18,6 +18,17 @@ concepts covered for a strong foundatoin ahead of any formal education.
     - Complete
 3. Objects
     - Incomplete
+        1. Point-Triangle
+
+           Intended to continue adding methods to classes and learning to call
+           into objects.
+        2. Inside-Rectangles
+
+           Intended for reinforcing usage of objects within objects.
+        3. Shaped-Area
+
+           Intended to continue using arrays and objects together.
+    - Complete
         1. SimpleFish
 
 
@@ -34,4 +45,3 @@ concepts covered for a strong foundatoin ahead of any formal education.
 
             Intended for experiencing the process of deciding the data to
             encapsulate within an class.
-    - Complete
