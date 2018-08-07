@@ -1,4 +1,5 @@
 import pizzeria.Pizzeria;
+import pizzeria.internal.food.PizzaBuilder;
 import pizzeria.internal.menu.PizzaType;
 
 import java.util.Scanner;
@@ -12,9 +13,11 @@ public class PizzeriaLauncher
     private Scanner mInputScanner;
 
     public static final int LEAVING = 0;
-    public static final int ORDERING = 1;
-    public static final int CHECKING = 2;
-    public static final int PAYING = 3;
+    public static final int CHECK_MENU = 1;
+    public static final int ORDERING = 2;
+    public static final int CHECK_BILL = 7;
+    public static final int PAYING = 8;
+    public static final int MOVE = 9;
 
     // The Pizzeria that the user has chosen to enter.
     Pizzeria pizzeria = new Pizzeria();
@@ -32,7 +35,6 @@ public class PizzeriaLauncher
     /**
      * The true entry point to the pizzeria. This will run forever, until the program exits.
      *
-     * TODO: Add a loop so that the user can continue selection options so long as they choose not to leave.
      */
     private void start() {
         System.out.println("Welcome to Pinky's Picture Perfect Pizzeria, home of the best Pizza in town!");
@@ -77,12 +79,16 @@ public class PizzeriaLauncher
      * @param optionSelected The choice selected by the user that needs processing.
      */
     private void processUserChoice(final int optionSelected) {
-        if (optionSelected == ORDERING) {
+        if (optionSelected == CHECK_MENU) {
+            handleMenu();
+        } else if (optionSelected == ORDERING) {
             handleOrderingPizza();
-        } else if (optionSelected == CHECKING) {
+        } else if (optionSelected == CHECK_BILL) {
             handleCheckBill();
         } else if (optionSelected == PAYING) {
             handlePayment();
+        } else if (optionSelected == MOVE) {
+            handleMove();
         } else {
             stop();
         }
@@ -92,34 +98,94 @@ public class PizzeriaLauncher
      * Show the user what types of pizza are available and then ask what they want. Once retrieved, hand off the
      * information to the pizzeria to obtain the correct pizza. Then give it to the user.
      *
-<<<<<<< HEAD
-     *
-=======
      * TODO: Show all the available types of pizza.
      * TODO: Ask the user which type of pizza they want.
      * TODO: Inform the pizzeria of the order, obtain the pizza, and give it to the user.
      * TODO: Update with the new types of pizza available.
->>>>>>> 555557feeba24fb5455ea0e1b39c5a50106abccf
      */
+    private void handleMenu () {
+        System.out.println("Here's the menu: ");
+        System.out.println(pizzeria.checkMenu());
+    }
+
+    private void handleMove() {
+        String description;
+        String [] namePizzeria = {"Maria's Margherita Masterpieces", "Pinky's Picture Perfect Pizzeria",
+        "The Seasonal Special Shack", "Protein, Power, Profit"};
+        System.out.println("Here are the available pizzerias in town:\n");
+
+        for (int i = 0; i < namePizzeria.length; i++) {
+            System.out.println(namePizzeria[i]);
+        }
+        System.out.println();
+        mInputScanner.nextLine();
+        System.out.println("Which pizzeria do you want to go to? Enter the place name.");
+        String nameOfPizza = mInputScanner.nextLine();
+
+        if (nameOfPizza.equalsIgnoreCase(namePizzeria[0])) {
+            final int numOfTypes = 2;
+            description = "Margheritas galore, the freshest tomatoes on the freshest pizza in town.";
+            PizzaType [] typesSupported = new PizzaType[numOfTypes];
+            Pizzeria diffPizzeria = new Pizzeria(nameOfPizza, description,typesSupported);
+
+            if (pizzeria.calculateCost() == 0) {
+                System.out.println("Welcome to " + diffPizzeria.moveToPizzeria());
+            } else {
+                System.out.println("Please pay before you leave.");
+                handlePayment();
+            }
+        }
+        if (nameOfPizza.equalsIgnoreCase(namePizzeria[1])) {
+
+            final int numOfTypes = 5;
+            description = "Home of the best pizzas in town!";
+            PizzaType [] typesSupported = new PizzaType[numOfTypes];
+            Pizzeria diffPizzeria = new Pizzeria(nameOfPizza, description,typesSupported);
+
+            if (pizzeria.calculateCost() == 0) {
+                System.out.println("Welcome to " + diffPizzeria.moveToPizzeria());
+            } else {
+                System.out.println("Please pay before you leave.");
+                handlePayment();
+            }
+        }
+        if (nameOfPizza.equalsIgnoreCase(namePizzeria[2])) {
+            final int numOfTypes = 4;
+            description = " We won't sacrifice quality on subpar toppings. Only open during " +
+                    "summer when produce is best! ";
+            PizzaType [] typesSupported = new PizzaType[numOfTypes];
+            Pizzeria diffPizzeria = new Pizzeria(nameOfPizza, description,typesSupported);
+
+            if (pizzeria.calculateCost() == 0) {
+                System.out.println("Welcome to " + diffPizzeria.moveToPizzeria());
+            } else {
+                System.out.println("Please pay before you leave.");
+                handlePayment();
+            }
+        }
+        if (nameOfPizza.equalsIgnoreCase(namePizzeria[3])) {
+            final int numOfTypes = 1;
+            description = "Meat is best and beats the rest.";
+            PizzaType [] typesSupported = new PizzaType[numOfTypes];
+            Pizzeria diffPizzeria = new Pizzeria(nameOfPizza, description,typesSupported);
+
+            if (pizzeria.calculateCost() == 0) {
+                System.out.println("Welcome to " + diffPizzeria.moveToPizzeria());
+            } else {
+                System.out.println("Please pay before you leave.");
+                handlePayment();
+            }
+        }
+    }
+
 
     private void handleOrderingPizza() {
         System.out.println("What type of pizza do you want to order? ");
-        System.out.println("1) Cheese Pizza - Plain pizza with fresh red " +
-                "tomato sauce and some mozzarella cheese.");
         System.out.print("Your order #: ");
         int order = mInputScanner.nextInt();
-        System.out.print("The name of the type of pizza you are ordering: ");
-        mInputScanner.nextLine();
-        String name = mInputScanner.nextLine();
-        System.out.print("The description of the pizza: ");
-        String description = mInputScanner.nextLine();
-<<<<<<< HEAD
-=======
-        PizzaType[] typesSupported = new PizzaType[0];
-        Pizzeria orderPizzeria = new Pizzeria(name,description, typesSupported);
-        orderPizzeria.takeOrder(order);
->>>>>>> 555557feeba24fb5455ea0e1b39c5a50106abccf
-        System.out.println("Here's your pizza");
+
+        pizzeria.takeOrder(order);
+        System.out.println("Here's your pizza:");
         System.out.println(pizzeria.takeOrder(order));
 
     }
@@ -143,5 +209,10 @@ public class PizzeriaLauncher
         int payment = mInputScanner.nextInt();
         pizzeria.acceptPayment(payment);
     }
-
 }
+
+/*System.out.print("The name of the type of pizza you are ordering: ");
+        mInputScanner.nextLine();
+        String name = mInputScanner.nextLine();
+        System.out.print("The description of the pizza: ");
+        String description = mInputScanner.nextLine();*/
