@@ -9,10 +9,15 @@ import pizzeria.internal.menu.PizzaType;
  * and other aspects of business.
  */
 public class Pizzeria {
-    public final int PIZZA_TYPE_CHEESE_PIZZA = 1;
-    public static final int COST_OF_PIZZA = 10;
+    public final int PIZZA_TYPE_CHEESE = 1;
+    public final int PIZZA_TYPE_MARGERHITA = 2;
+    public final int PIZZA_TYPE_MEATLOVER = 3;
+    public final int PIZZA_TYPE_GARDEN = 4;
+    public final int PIZZA_TYPE_HAWAIIAN = 5;
 
-    Pizza pizza = new Pizza();
+    public final int COST_OF_PIZZA = 10;
+
+    //Pizza pizza = new Pizza();
 
     private String mName;
     private String mDescription;
@@ -25,17 +30,11 @@ public class Pizzeria {
         this.mNumOfPizzas = 0;
     }
 
-<<<<<<< HEAD
-    public Pizzeria(final String name, final String description) {
-        mName = name;
-        mDescription = description;
-=======
-    public Pizzeria(final String name, final String description, final PizzaType[] pizzasAllowed) {
+    public Pizzeria(final String name, final String description, final PizzaType [] pizzasAllowed) {
         mName = name;
         mDescription = description;
         mKitchen = new Kitchen();
         mKitchen.updateMenu(pizzasAllowed);
->>>>>>> 555557feeba24fb5455ea0e1b39c5a50106abccf
     }
 
     /**
@@ -46,16 +45,29 @@ public class Pizzeria {
      */
 
     public String takeOrder(final int PizzaType) {
-        if (PizzaType == PIZZA_TYPE_CHEESE_PIZZA) {
+        if (PizzaType == PIZZA_TYPE_CHEESE) {
             mNumOfPizzas++;
         }
-        return pizza.toString();
+        if (PizzaType == PIZZA_TYPE_MARGERHITA) {
+            mNumOfPizzas++;
+        }
+        if (PizzaType == PIZZA_TYPE_MEATLOVER) {
+            mNumOfPizzas++;
+        }
+        if (PizzaType == PIZZA_TYPE_GARDEN) {
+            mNumOfPizzas++;
+        }
+        if (PizzaType == PIZZA_TYPE_HAWAIIAN){
+            mNumOfPizzas++;
+        }
+        return "";//pizza.toString();
     }
 
     /**
      * Calculates the cost by the number of pizzas the user had ordered beforehand.
      * @return Returns the current cost for the current amount of pizzas the user had ordered.
      */
+
     public int calculateCost() {
         int cost;
         cost = mNumOfPizzas * COST_OF_PIZZA;
@@ -72,6 +84,8 @@ public class Pizzeria {
         double remainingAmount = payment - calculateCost();
         if (remainingAmount != 0) {
             System.out.println("This is your change: $" + remainingAmount);
+        } else {
+            System.out.println("You have 0 as your balance");
         }
     }
 
@@ -82,12 +96,95 @@ public class Pizzeria {
      * @return The nicely formatted menu that is currently available.
      */
     public String checkMenu() {
-        return "";
+        String menu;
+        if (mKitchen.getMenu().length == 2) {
+            menu = "\n1) Plain Cheese" + "\nPlain pizza with fresh red tomato sauce and some mozzarella cheese.\n" +
+                    "\n2) Margerhita" + "\nA classic and refined pizza using fresh red tomato sauce and mozzarella cheese\n" +
+                    "covered in slices of fresh tomato and topped with fresh spinach.\n";
+            return menu;
+        } else if (mKitchen.getMenu().length == 5) {
+            menu = "\n1) Plain Cheese" + "\nPlain pizza with fresh red tomato sauce and some mozzarella cheese.\n" +
+                    "\n2) Margerhita" + "\nA classic and refined pizza using fresh red tomato sauce and mozzarella cheese\n" +
+                    "covered in slices of fresh tomato and topped with fresh spinach.\n" +
+                    "\n3) Meatlovers" + "\nA supremely stuffed pizza with fresh red tomato sauce and mozzarella cheese" +
+                    "layered with pepperoni, sausage bits, ground beef, and bacon bits.\n" +
+                    "\n4) Garden" + "\nA vegetarian friendly delight made with fresh red tomato sauce and mozzarella\n" +
+                    "cheese covered with locally sourced spinach, mushrooms, caramelized onions, sweet\n" +
+                    "green peppers, and olives.\n" +
+                    "\n5) Hawaiin" + "\nA sweet and savory treat of fresh pineapples and sliced ham on top of gooey\n" +
+                    "mozzarella cheese and fresh red tomato sauce.\n";
+            return menu;
+        } else if (mKitchen.getMenu().length == 4) {
+            menu = "\n1) Margerhita" + "\nA classic and refined pizza using fresh red tomato sauce and mozzarella cheese\n" +
+                    "covered in slices of fresh tomato and topped with fresh spinach.\n" +
+                    "\n2) Meatlovers" + "\nA supremely stuffed pizza with fresh red tomato sauce and mozzarella cheese" +
+                    "layered with pepperoni, sausage bits, ground beef, and bacon bits.\n" +
+                    "\n3) Garden" + "\nA vegetarian friendly delight made with fresh red tomato sauce and mozzarella\n" +
+                    "cheese covered with locally sourced spinach, mushrooms, caramelized onions, sweet\n" +
+                    "green peppers, and olives.\n" +
+                    "\n4) Hawaiian" + "\nA sweet and savory treat of fresh pineapples and sliced ham on top of gooey\n" +
+                    "mozzarella cheese and fresh red tomato sauce.\n";
+            return menu;
+        } else {
+            menu = "\n1) Meatlovers" + "\nA supremely stuffed pizza with fresh red tomato sauce and mozzarella cheese" +
+                    "layered with pepperoni, sausage bits, ground beef, and bacon bits.\n";
+            return menu;
+        }
     }
 
-    @Override
-    public String toString() {
-
-        return mName + ": " + mDescription;
+    public String moveToPizzeria() {
+        String pizzeria;
+        pizzeria = mName + ", " + mDescription;
+        return pizzeria;
     }
 }
+//@Override
+    /*public String toString() {
+
+        return mName + ": " + mDescription;
+    }*/
+
+
+    /*if (mKitchen.getMenu().length == 2) {
+            menu = "\n1) Plain Cheese" + "\nPlain pizza with fresh red tomato sauce and some mozzarella cheese.\n" +
+            "\n2) Margerhita" + "\nA classic and refined pizza using fresh red tomato sauce and mozzarella cheese\n" +
+            "covered in slices of fresh tomato and topped with fresh spinach.\n";
+            return menu;
+            } else if (mKitchen.getMenu().length == 5) {
+            menu = "\n1) Plain Cheese" + "\nPlain pizza with fresh red tomato sauce and some mozzarella cheese.\n" +
+            "\n2) Margerhita" + "\nA classic and refined pizza using fresh red tomato sauce and mozzarella cheese\n" +
+            "covered in slices of fresh tomato and topped with fresh spinach.\n" +
+            "\n3) Meatlovers" + "\nA supremely stuffed pizza with fresh red tomato sauce and mozzarella cheese" +
+            "layered with pepperoni, sausage bits, ground beef, and bacon bits.\n" +
+            "\n4) Garden" + "\nA vegetarian friendly delight made with fresh red tomato sauce and mozzarella\n" +
+            "cheese covered with locally sourced spinach, mushrooms, caramelized onions, sweet\n" +
+            "green peppers, and olives.\n" +
+            "\n5) Hawaiin" + "\nA sweet and savory treat of fresh pineapples and sliced ham on top of gooey\n" +
+            "mozzarella cheese and fresh red tomato sauce.\n";
+            return menu;
+            } else if (mKitchen.getMenu().length == 4) {
+            menu = "\n1) Margerhita" + "\nA classic and refined pizza using fresh red tomato sauce and mozzarella cheese\n" +
+            "covered in slices of fresh tomato and topped with fresh spinach.\n" +
+            "\n2) Meatlovers" + "\nA supremely stuffed pizza with fresh red tomato sauce and mozzarella cheese" +
+            "layered with pepperoni, sausage bits, ground beef, and bacon bits.\n" +
+            "\n3) Garden" + "\nA vegetarian friendly delight made with fresh red tomato sauce and mozzarella\n" +
+            "cheese covered with locally sourced spinach, mushrooms, caramelized onions, sweet\n" +
+            "green peppers, and olives.\n" +
+            "\n4) Hawaiin" + "\nA sweet and savory treat of fresh pineapples and sliced ham on top of gooey\n" +
+            "mozzarella cheese and fresh red tomato sauce.\n";
+            return menu;
+            } else {
+            menu = "\n1) Meatlovers" + "\nA supremely stuffed pizza with fresh red tomato sauce and mozzarella cheese" +
+            "layered with pepperoni, sausage bits, ground beef, and bacon bits.\n";*/
+
+
+/*menu = "\n1) Plain Cheese" + "\nPlain pizza with fresh red tomato sauce and some mozzarella cheese.\n" +
+        "\n2) Margerhita" + "\nA classic and refined pizza using fresh red tomato sauce and mozzarella cheese\n" +
+        "covered in slices of fresh tomato and topped with fresh spinach.\n" +
+        "\n3) Meatlovers" + "\nA supremely stuffed pizza with fresh red tomato sauce and mozzarella cheese" +
+        "layered with pepperoni, sausage bits, ground beef, and bacon bits.\n" +
+        "\n4) Garden" + "\nA vegetarian friendly delight made with fresh red tomato sauce and mozzarella\n" +
+        "cheese covered with locally sourced spinach, mushrooms, caramelized onions, sweet\n" +
+        "green peppers, and olives.\n" +
+        "\n5) Hawaiin" + "\nA sweet and savory treat of fresh pineapples and sliced ham on top of gooey\n" +
+        "mozzarella cheese and fresh red tomato sauce.\n";*/
