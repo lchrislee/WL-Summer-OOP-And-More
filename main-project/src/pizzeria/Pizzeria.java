@@ -130,9 +130,7 @@ public class Pizzeria {
                 menu = "\n" + i + ") Hawaiian" + "\nA sweet and savory treat of fresh pineapples and sliced ham " +
                         "on top of gooey mozzarella cheese and fresh red tomato sauce.\n";
             }
-            return menu;
         }
-        menu = "no menu can be generated";
         return menu;
     }
 
@@ -147,33 +145,3 @@ public class Pizzeria {
 
         return mName + ": " + mDescription;
     }*/
-
-
-    /*for (int i = 0; i < mKitchen.getMenu().length; i++) {
-            PizzaType [] typesOfPizza = mKitchen.getMenu();
-
-            if(typesOfPizza[i] == PizzaType.PLAIN) {
-                menu = "\n1) Plain Cheese" + "\nPlain pizza with fresh red tomato sauce " +
-                        "and some mozzarella cheese.\n";
-                return menu;
-            } else if (typesOfPizza[i] == PizzaType.MARGHERITA) {
-                menu = "\n2) Margerhita" + "\nA classic and refined pizza using fresh red " +
-                        "tomato sauce and mozzarella cheese covered in slices of fresh tomato " +
-                        "and topped with fresh spinach.";
-                return menu;
-            } else if (typesOfPizza[i] == PizzaType.MEATLOVERS) {
-                menu = "\n3) Meatlovers" + "\nA supremely stuffed pizza with fresh red tomato sauce " +
-                        "and mozzarella cheese layered with pepperoni, sausage bits, ground beef, and " +
-                        "bacon bits.";
-                return menu;
-            } else if (typesOfPizza[i] == PizzaType.GARDEN) {
-                menu = "\n4) Garden" + "\nA vegetarian friendly delight made with fresh red tomato " +
-                        "sauce and mozzarella cheese covered with locally sourced spinach, mushrooms," +
-                        " caramelized onions, sweet green peppers, and olives.";
-                return menu;
-            } else {
-                menu = "\n5) Hawaiian" + "\nA sweet and savory treat of fresh pineapples and sliced ham on top of gooey\n" +
-                        "mozzarella cheese and fresh red tomato sauce.\n";
-                return menu;
-            }
-        }*/
