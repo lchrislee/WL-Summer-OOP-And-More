@@ -149,10 +149,10 @@ public class PizzaBuilder {
             Topping[] topping = new Topping [count];
 
             if (this.hasTomatoSauce) {
-                topping [0] = Topping.TOMATO_SAUCE;
+                topping[0] = Topping.TOMATO_SAUCE;
             }
             if (this.hasMozzarellaCheese) {
-                topping [1] = Topping.MOZZARELLA_CHEESE;
+                topping[1] = Topping.MOZZARELLA_CHEESE;
             }
             if (this.hasBasil) {
                 topping[2] = Topping.BASIL;

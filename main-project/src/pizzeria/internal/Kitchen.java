@@ -17,26 +17,6 @@ public class Kitchen {
      * @param types The new {@link Pizza} types.
      */
     public void updateMenu(final PizzaType [] types) {
-        if (types.length == 2) {
-            types[0] = PizzaType.PLAIN;
-            types[1] = PizzaType.MARGHERITA;
-        }
-        if (types.length == 5) {
-            types[0] = PizzaType.PLAIN;
-            types[1] = PizzaType.MARGHERITA;
-            types[2] = PizzaType.MEATLOVERS;
-            types[3] = PizzaType.GARDEN;
-            types[4] = PizzaType.HAWAIIAN;
-        }
-        if (types.length == 4) {
-            types[0] = PizzaType.MARGHERITA;
-            types[1] = PizzaType.MEATLOVERS;
-            types[2] = PizzaType.GARDEN;
-            types[3] = PizzaType.HAWAIIAN;
-        }
-        if (types.length == 1) {
-            types[0] = PizzaType.MEATLOVERS;
-        }
 
         mMenu = types;
     }
@@ -65,45 +45,51 @@ public class Kitchen {
 
         PizzaBuilder builder = new PizzaBuilder();
 
-        Pizza cheesePizza = builder
-                .withTomatoSauce(true)
-                .withMozzarella(true)
-                .build();
+        if (typeOrdered == PizzaType.PLAIN) {
+            Pizza cheesePizza = builder
+                    .withTomatoSauce(true)
+                    .withMozzarella(true)
+                    .build();
+        }
+        if (typeOrdered == PizzaType.MARGHERITA) {
+            Pizza margerhitaPizza = builder
+                    .withTomatoSauce(true)
+                    .withMozzarella(true)
+                    .withBasil(true)
+                    .withTomatoSlices(true)
+                    .build();
+        }
+        if (typeOrdered == PizzaType.MEATLOVERS) {
+            Pizza meatloverPizza = builder
+                    .withTomatoSauce(true)
+                    .withMozzarella(true)
+                    .withSausage(true)
+                    .withPepperoni(true)
+                    .withGroundBeef(true)
+                    .withBaconBits(true)
+                    .build();
+        }
 
-        Pizza margerhitaPizza = builder
-                .withTomatoSauce(true)
-                .withMozzarella(true)
-                .withBasil(true)
-                .withTomatoSlices(true)
-                .build();
-
-        Pizza meatloverPizza = builder
-                .withTomatoSauce(true)
-                .withMozzarella(true)
-                .withSausage(true)
-                .withPepperoni(true)
-                .withGroundBeef(true)
-                .withBaconBits(true)
-                .build();
-
-        Pizza gardenPizza = builder
-                .withTomatoSauce(true)
-                .withMozzarella(true)
-                .withBasil(true)
-                .withSpinach(true)
-                .withMushrooms(true)
-                .withGreenPeppers(true)
-                .withCaramelizedOnions(true)
-                .withOlives(true)
-                .build();
-
-        Pizza hawaiianPizza = builder
-                .withTomatoSauce(true)
-                .withMozzarella(true)
-                .withPineapples(true)
-                .withSlicedHam(true)
-                .build();
-
+        if(typeOrdered == PizzaType.GARDEN) {
+            Pizza gardenPizza = builder
+                    .withTomatoSauce(true)
+                    .withMozzarella(true)
+                    .withBasil(true)
+                    .withSpinach(true)
+                    .withMushrooms(true)
+                    .withGreenPeppers(true)
+                    .withCaramelizedOnions(true)
+                    .withOlives(true)
+                    .build();
+        }
+        if (typeOrdered == PizzaType.HAWAIIAN) {
+            Pizza hawaiianPizza = builder
+                    .withTomatoSauce(true)
+                    .withMozzarella(true)
+                    .withPineapples(true)
+                    .withSlicedHam(true)
+                    .build();
+        }
         return new PizzaBuilder().build();
     }
 }

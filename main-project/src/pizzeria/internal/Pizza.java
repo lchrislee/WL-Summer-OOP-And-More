@@ -15,11 +15,48 @@ public class Pizza {
     private String mDescription;
     //private Topping[] topping;
 
-    private PizzaType pizza;
+    //private PizzaType pizza;
 
     public Pizza(Topping [] topping) {
-        //Pizza pizza = new Pizza();
-        if (topping [2] == Topping.BASIL) {
+
+    }
+
+    public Pizza(String name, String description) {
+        mName = name;
+        mDescription = description;
+    }
+
+
+    @Override
+    public String toString() {
+
+        return mName + " - " + mDescription;
+    }
+}
+
+/*if (PizzaType.PLAIN.equals(true)) {
+            mName = "Cheese Pizza";
+            mDescription = "Plain pizza with fresh red tomato sauce and some mozzarella cheese.";
+        } else if (PizzaType.MARGHERITA.equals(true)) {
+            mName = "Margherita";
+            mDescription = "A classic and refined pizza using fresh red tomato sauce and mozzarella cheese\n" +
+                    "covered in slices of fresh tomato and topped with fresh spinach.";
+        } else if (PizzaType.MEATLOVERS.equals(true)) {
+            mName = "Meatlovers";
+            mDescription = "A supremely stuffed pizza with fresh red tomato sauce and mozzarella cheese\n" +
+                    "layered with pepperoni, sausage bits, ground beef, and bacon bits.";
+        } else if (PizzaType.GARDEN.equals(true)) {
+            mName = "Garden";
+            mDescription = "A vegetarian friendly delight made with fresh red tomato sauce and mozzarella\n" +
+                    "cheese covered with locally sourced spinach, mushrooms, caramelized onions, sweet\n" +
+                    "green peppers, and olives.";
+        } else {
+            mName = "Hawaiian";
+            mDescription = "A sweet and savory treat of fresh pineapples and sliced ham on top of gooey\n" +
+                    "mozzarella cheese and fresh red tomato sauce.";
+        }*/
+
+/*if (topping [2] == Topping.BASIL) {
             pizza = PizzaType.MARGHERITA;
         }
         if (topping [4] == Topping.PEPPERONI) {
@@ -33,16 +70,4 @@ public class Pizza {
         }
         if (topping [0] == Topping.TOMATO_SAUCE && topping [1] == Topping.MOZZARELLA_CHEESE){
             pizza = PizzaType.PLAIN;
-        }
-    }
-
-    //mName = "Cheese Pizza";
-    //mDescription = "Plain pizza with fresh red tomato sauce and some mozzarella cheese.";
-
-
-    @Override
-    public String toString() {
-
-        return mName + " - " + mDescription;
-    }
-}
+        }*/
